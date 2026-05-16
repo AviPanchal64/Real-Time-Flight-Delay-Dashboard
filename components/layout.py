@@ -11,7 +11,7 @@ def apply_css():
             color: #0f172a;
         }
 
-        /* Remove excessive top whitespace */
+        /* Main content spacing */
         .block-container {
             padding-top: 3rem;
             padding-bottom: 2rem;
@@ -24,11 +24,24 @@ def apply_css():
             border-right: 1px solid rgba(255, 255, 255, 0.12);
         }
 
-        [data-testid="stSidebar"] * {
+        /* Only make sidebar labels/headings white, NOT inputs/dropdowns */
+        [data-testid="stSidebar"] label,
+        [data-testid="stSidebar"] p,
+        [data-testid="stSidebar"] h1,
+        [data-testid="stSidebar"] h2,
+        [data-testid="stSidebar"] h3 {
             color: #f8fafc !important;
         }
 
-        /* Sidebar inputs */
+        /* Sidebar input labels */
+        [data-testid="stSidebar"] .stTextInput label,
+        [data-testid="stSidebar"] .stSelectbox label,
+        [data-testid="stSidebar"] .stSlider label {
+            color: #f8fafc !important;
+            font-weight: 600;
+        }
+
+        /* Text input boxes */
         .stTextInput input {
             background-color: #ffffff !important;
             color: #111827 !important;
@@ -36,14 +49,53 @@ def apply_css():
             border: 1px solid #cbd5e1 !important;
         }
 
+        .stTextInput input::placeholder {
+            color: #6b7280 !important;
+        }
+
+        /* Selectbox closed state */
         div[data-baseweb="select"] > div {
             background-color: #ffffff !important;
             color: #111827 !important;
             border-radius: 10px !important;
+            border: 1px solid #cbd5e1 !important;
         }
 
-        div[data-baseweb="select"] span {
+        div[data-baseweb="select"] span,
+        div[data-baseweb="select"] input {
             color: #111827 !important;
+        }
+
+        div[data-baseweb="select"] svg {
+            color: #111827 !important;
+            fill: #111827 !important;
+        }
+
+        /* Selectbox dropdown menu */
+        ul[role="listbox"] {
+            background-color: #ffffff !important;
+        }
+
+        ul[role="listbox"] li,
+        ul[role="listbox"] div,
+        ul[role="listbox"] span {
+            color: #111827 !important;
+            background-color: #ffffff !important;
+        }
+
+        ul[role="listbox"] li:hover,
+        ul[role="listbox"] div:hover {
+            background-color: #e0f2fe !important;
+            color: #111827 !important;
+        }
+
+        /* Slider */
+        .stSlider [data-baseweb="slider"] {
+            margin-top: 10px;
+        }
+
+        .stSlider [data-baseweb="slider"] div {
+            color: #f8fafc !important;
         }
 
         /* Header */
@@ -101,7 +153,7 @@ def apply_css():
             padding: 8px;
         }
 
-        /* Buttons */
+        /* Download button */
         .stDownloadButton button {
             background: #2563eb !important;
             color: white !important;
@@ -110,17 +162,17 @@ def apply_css():
             font-weight: 700 !important;
         }
 
+        .stDownloadButton button:hover {
+            background: #1d4ed8 !important;
+            color: white !important;
+        }
+
         /* Footer */
         .footer {
             text-align: center;
             color: #64748b;
             padding: 25px;
             font-size: 14px;
-        }
-
-        /* Slider */
-        .stSlider [data-baseweb="slider"] {
-            margin-top: 10px;
         }
         </style>
         """,
